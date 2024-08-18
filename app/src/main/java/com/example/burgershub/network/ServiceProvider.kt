@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 
 class ServiceProvider {
-    private val baseUrl = ""
+    private val baseUrl = "https://burgers-hub.p.rapidapi.com/"
     private val client = OkHttpClient.Builder()  //pega as chamadas e coloca em log
         .connectTimeout(30,TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
