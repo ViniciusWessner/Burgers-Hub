@@ -34,10 +34,14 @@ class BurgersAdapter(
         holder.binding.textDescription.text = burger.desc
         holder.binding.textPrice.text = burger.price?.formattedValue()
 
-        Picasso
-            .get()
-            .load(burger.image?.get(1)?.lg)
-            .into(holder.binding.imageBurger)
+        try {
+            Picasso
+                .get()
+                .load(burger.image?.get(1)?.lg)
+                .into(holder.binding.imageBurger)
+        }catch (ex: Exception){
+            ex.printStackTrace()
+        }
 
         holder.itemView.setOnClickListener{ burgerClick(burger.id ?: 0)}
     }
