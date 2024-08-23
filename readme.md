@@ -1,23 +1,64 @@
-Explicação das camadas:
-Data:
+# Burger App
 
-api: Aqui está o ServiceAPI, responsável por fazer as chamadas de rede, como requisições para obter dados de uma API externa.
-mapper: O BurgerMapper converte dados recebidos de uma fonte externa (normalmente JSON) em modelos utilizáveis dentro da aplicação.
-model: Aqui estão as respostas do servidor (BurgerResponse, ErrorResponse, etc.), que representam os dados que chegam da API.
-repository: A implementação do repositório (BurgerRepositoryImpl) lida com a lógica de obtenção de dados, seja da rede ou de um banco de dados local.
-Domain:
+Este projeto consiste em uma aplicação que consome uma API de hambúrgueres. A arquitetura é modularizada em diferentes camadas para facilitar a manutenção, escalabilidade e teste. Aqui está a descrição de cada camada e suas responsabilidades.
 
-model: Modelos como Burger, Image, e Ingredient representam as entidades de negócio, que são independentes de qualquer framework ou tecnologia externa.
-repository: A interface do repositório (BurgerRepository) define as operações disponíveis para o repositório, como buscar hambúrgueres por nome ou ID.
-usecase: Os casos de uso (GetBurgerByNameUseCase, GetBurgersUseCase) são responsáveis pela lógica de negócios. Eles executam ações concretas na aplicação, como buscar uma lista de hambúrgueres ou um hambúrguer específico.
-Di (Dependency Injection):
+## Camadas do Projeto
 
-Essa pasta contém os módulos responsáveis por injetar dependências necessárias para outras partes do código, como módulos de rede, dados, e domínio. Isso facilita a modularização e teste das classes.
-Presenter (ou camada de apresentação):
+### 1. **Data**
+A camada de dados lida com a obtenção e processamento de informações da API externa.
 
-burgers: Contém o BurgersAdapter, BurgersFragment, e o BurgerViewModel. Essa camada é responsável pela apresentação e manipulação da interface do usuário. O ViewModel contém a lógica de interface e mantém os dados sincronizados entre a View (UI) e o restante da aplicação.
-details: Contém fragmentos e ViewModels relacionados aos detalhes, como DetailsFragment, DetailsViewModel, e o IngredientsAdapter, que cuida da apresentação dos detalhes de um hambúrguer específico.
-MainActivity: O ponto de entrada da aplicação Android.
-Util:
+- **api**:
+    - **ServiceAPI**: Responsável por fazer as chamadas de rede, como requisições para obter dados de uma API externa.
 
-Contém classes auxiliares como Extensions.kt, que provavelmente adicionam extensões úteis ao código, e StateView, uma classe que facilita a comunicação de estados (carregando, erro, sucesso, etc.).
+- **mapper**:
+    - **BurgerMapper**: Converte os dados recebidos de uma fonte externa (geralmente em JSON) para modelos utilizáveis dentro da aplicação.
+
+- **model**:
+    - **BurgerResponse**, **ErrorResponse**, etc.: Representam as respostas do servidor e os dados que chegam da API.
+
+- **repository**:
+    - **BurgerRepositoryImpl**: Implementação do repositório que lida com a lógica de obtenção de dados, seja da rede ou de um banco de dados local.
+
+### 2. **Domain**
+A camada de domínio contém a lógica de negócios e é independente de qualquer tecnologia externa.
+
+- **model**:
+    - **Burger**, **Image**, **Ingredient**: Modelos que representam as entidades de negócio. Estes modelos são independentes da infraestrutura ou frameworks externos.
+
+- **repository**:
+    - **BurgerRepository**: Define as operações disponíveis para o repositório, como buscar hambúrgueres por nome ou ID.
+
+- **usecase**:
+    - **GetBurgerByNameUseCase**, **GetBurgersUseCase**: Casos de uso responsáveis pela lógica de negócios, executando ações como buscar uma lista de hambúrgueres ou um hambúrguer específico.
+
+### 3. **DI (Dependency Injection)**
+Esta camada contém os módulos responsáveis pela injeção de dependências em outras partes do código, facilitando a modularização e teste das classes.
+
+### 4. **Presenter (Camada de Apresentação)**
+Esta camada cuida da lógica e apresentação da interface do usuário.
+
+- **burgers**:
+    - **BurgersAdapter**, **BurgersFragment**, **BurgerViewModel**: Responsáveis pela apresentação e manipulação da interface do usuário, sincronizando os dados entre a View (UI) e o resto da aplicação.
+
+- **details**:
+    - **DetailsFragment**, **DetailsViewModel**, **IngredientsAdapter**: Responsáveis pela exibição dos detalhes de um hambúrguer específico.
+
+- **MainActivity**: O ponto de entrada da aplicação Android.
+
+### 5. **Util**
+Contém classes auxiliares que ajudam a manter o código limpo e organizado.
+
+- **Extensions.kt**: Extensões úteis para facilitar o desenvolvimento.
+- **StateView**: Classe que facilita a comunicação de estados (como carregando, erro, sucesso) na interface do usuário.
+
+## Tecnologias Utilizadas
+- **Kotlin**
+- **Retrofit** para requisições de rede
+- **Coroutines** para operações assíncronas
+- **Dependency Injection** para gestão de dependências
+- **MVVM** para arquitetura de apresentação
+
+## Instalação e Uso
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/usuario/burger-app.git
