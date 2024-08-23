@@ -6,7 +6,6 @@
 
 Este projeto consiste em uma aplicação que consome uma API de hambúrgueres. A arquitetura é modularizada em diferentes camadas para facilitar a manutenção, escalabilidade e teste. Aqui está a descrição de cada camada e suas responsabilidades.
 
-## Explicação das camadas do projeto
 
 ### 1. **Data**
 A camada de dados lida com a obtenção e processamento de informações da API externa.
@@ -28,4 +27,5 @@ Contém classes auxiliares que ajudam a manter o código limpo e organizado.
 - **Retrofit** para requisições de rede
 - **Coroutines** para operações assíncronas
 - **Dependency Injection** para gestão de dependências
+- - **Mock Interceptor** para fazer requisições em dados mockados
 - **MVVM** para arquitetura de apresentação

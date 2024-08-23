@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.burgershub.R
 import com.example.burgershub.databinding.BurgerItemBinding
 import com.example.burgershub.domain.model.Burger
 import com.example.burgershub.util.formattedValue
@@ -14,6 +15,7 @@ class BurgersAdapter(
     private val burgerClick: (Int) -> Unit
 ): RecyclerView.Adapter<BurgersAdapter.MyViewHolder>() {
 
+    inner class MyViewHolder(val binding: BurgerItemBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -34,18 +36,13 @@ class BurgersAdapter(
         holder.binding.textDescription.text = burger.desc
         holder.binding.textPrice.text = burger.price?.formattedValue()
 
-        try {
-            Picasso
-                .get()
-                .load(burger.image?.get(1)?.lg)
-                .into(holder.binding.imageBurger)
-        }catch (ex: Exception){
-            ex.printStackTrace()
-        }
+        Picasso
+            .get()
+            .load(burger.image?.get(1)?.lg)
+            .into(holder.binding.imageBurger)
 
-        holder.itemView.setOnClickListener{ burgerClick(burger.id ?: 0)}
+        holder.itemView.setOnClickListener { burgerClick(burger.id ?: 0) }
     }
 
-    inner class MyViewHolder(val binding: BurgerItemBinding): RecyclerView.ViewHolder(binding.root)
 
 }

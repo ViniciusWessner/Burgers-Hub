@@ -20,10 +20,9 @@ interface ServiceAPI {
       @Path("burger_id")  burgerId: Int
     ): BurgerResponse
 
-    //find-burger/?searchQuery=q&search=chicken
-    @MOCK(asset = "burger_name_response.jsonte", runDelay = true)
+    @MOCK(asset = "burger_name_response.json", runDelay = true)
     @GET("find-burger/")
     suspend fun getBurgerByName(
-       @Query("searchQuery") name: String
+       @Query("search") name: String
     ): List<BurgerResponse>
 }
