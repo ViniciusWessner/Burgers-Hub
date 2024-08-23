@@ -1,5 +1,11 @@
 # BurgerHub
 
+## Demonstração do aplicativo
+![GifProjeto](https://github.com/ViniciusWessner/Burgers-Hub/blob/dev/assets/Burger.gif?raw=true)
+![lista](https://github.com/ViniciusWessner/Burgers-Hub/blob/dev/assets/List.png?raw=true)
+![Search](https://github.com/ViniciusWessner/Burgers-Hub/blob/dev/assets/search.png?raw=true)
+
+
 ## Arquitetura do projeto
 
 ![FluxodoProjeto](https://github.com/ViniciusWessner/Burgers-Hub/blob/dev/assets/FlameShot_23_08_11_28.png)
