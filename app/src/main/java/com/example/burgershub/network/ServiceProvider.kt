@@ -50,7 +50,3 @@ class ServiceProvider @Inject constructor(context: Context) {
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
-
-
-    fun<API> createService(apiClass: Class<API>): API = retrofit.create(apiClass)
-}
