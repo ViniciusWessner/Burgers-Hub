@@ -21,7 +21,7 @@ interface ServiceAPI {
     ): BurgerResponse
 
     //find-burger/?searchQuery=q&search=chicken
-    @MOCK(asset = "burger_name_response.json", runDelay = true)
+    @MOCK(asset = "burger_name_response.jsonte", runDelay = true)
     @GET("find-burger/")
     suspend fun getBurgerByName(
        @Query("searchQuery") name: String
